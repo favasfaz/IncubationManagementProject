@@ -15,14 +15,13 @@ const newApplication =async(req,res)=>{
 }
 
 const pendingApplication =async(req,res)=>{
+    
     const allCompanies = await companyModel.find({status:'Pending'})
-    console.log(allCompanies,'pending');
     res.json(allCompanies)
 }
 
 const registeredApplication =async(req,res)=>{
     const allCompanies = await companyModel.find({status:'Registered'})
-    console.log(allCompanies,'regggg');
     res.json(allCompanies)
 }
 const blockedApplication = async (req,res)=>{

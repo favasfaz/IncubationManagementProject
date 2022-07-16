@@ -10,6 +10,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+
 app.post("/userRegister",userRegister );
 app.post('/loginUser',userLogin)
 app.post('/companyRegistration',CompanyRegistration)

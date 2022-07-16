@@ -123,6 +123,7 @@ const CompanyRegistration = async(req,res)=>{
 }
 
 const findRegistration = async(req,res)=>{
+    
     const token = jwt.decode(req.params.id)
     const company = await companyModel.find({email:token.email})
     console.log(company,'company');
