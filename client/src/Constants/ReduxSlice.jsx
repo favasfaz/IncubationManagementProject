@@ -2,6 +2,7 @@ import {createSlice,createAsyncThunk} from '@reduxjs/toolkit'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
+
 const initialState = {
     loading:false,
     users:[],
@@ -47,6 +48,7 @@ export const blockedApplication = createAsyncThunk('users/blockedApplication',()
     })
     .then((res)=>res.data)
 })
+
 
 
 const userSlice = createSlice({

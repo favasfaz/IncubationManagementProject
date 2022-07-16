@@ -117,25 +117,7 @@ function AdminFeed(props) {
                         <TableCell >
                           {row.companyName}
                         </TableCell>
-                       {/* {
-                        row.status !=='Registered' && row.status !=='Blocked' &&
-                        <TableCell >
-                        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                                 <InputLabel id="demo-simple-select-label">status</InputLabel>
-                                 <Select
-                                   labelId="demo-simple-select-label"
-                                   id="demo-simple-select"
-                                   value={userStatus}
-                                   onChange={(e)=>{handleChange(row._id,e.target.value)}}
-                                 >
-                                    <MenuItem value={1}>APPROVE</MenuItem>
-                                   <MenuItem value={2}>DENY</MenuItem>
-                                  
-                                 </Select>
-                               </FormControl>
-                         </TableCell> 
-                       } */}
-                  
+                   
                   </TableRow>
                 );
               })}

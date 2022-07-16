@@ -16,6 +16,7 @@ import {
   Typography,
 } from "@mui/material";
 import axios from "axios";
+import { color } from "@mui/system";
 function AdminSlot() {
   const [open, setOpen] = useState(false);
   const [sectionA, setSectionA] = useState([]);
@@ -28,6 +29,8 @@ function AdminSlot() {
   const [id, setId] = useState("");
   const [getSlot, setGetSlot] = useState({});
   const [details, setDetails] = useState(false);
+
+  console.log(sectionB, "sectionb");
 
   const style = {
     position: "absolute",
@@ -88,6 +91,9 @@ function AdminSlot() {
 
   return (
     <div>
+      <Typography variant="h3" sx={{ flexGrow: 1, textAlign: "center" ,color:'darkblue' }}>
+        SLOTS
+      </Typography>
       <Stack
         direction="row"
         justifyContent="space-between"
@@ -119,6 +125,90 @@ function AdminSlot() {
         })}
       </Stack>
 
+      <Grid
+        container
+        mt={3}
+        textAlign='center'
+      >
+        <Grid container gap={1} xs={4}>
+
+          <Grid xs={12}><Typography variant="h5">SectionA</Typography></Grid>
+          {sectionB.map((v, i) => {
+            return (
+              <Grid
+                xs={5}
+                key={v._id}
+                onClick={() => {
+                  v.isBooked ? showDeteil(v._id) : bookingSlot(v._id);
+                }}
+                sx={{
+                  height: 75,
+                  width: 75,
+                  bgcolor: !v.isBooked ? "primary.main" : "error.main",
+                  "&:hover": {
+                    cursor: "pointer",
+                  },
+                }}
+              >
+                <Typography color='white'>Slot{v.slot}</Typography>
+              </Grid>
+            );
+          })}
+        </Grid>
+
+        <Grid container gap={1} xs={4}>
+        <Grid xs={12}><Typography variant="h5">SectionB</Typography></Grid>
+
+          {sectionC.map((v, i) => {
+            return (
+              <Grid
+                xs={5}
+                key={v._id}
+                onClick={() => {
+                  v.isBooked ? showDeteil(v._id) : bookingSlot(v._id);
+                }}
+                sx={{
+                  height: 75,
+                  width: 75,
+                  bgcolor: !v.isBooked ? "primary.main" : "error.main",
+                  "&:hover": {
+                    cursor: "pointer",
+                  },
+                }}
+              >
+                                <Typography color='white'>Slot{v.slot}</Typography>
+              </Grid>
+            );
+          })}
+        </Grid>
+
+        <Grid container gap={1} xs={4}>
+        <Grid xs={12}><Typography variant="h5">SectionC</Typography></Grid>
+
+          {sectionD.map((v, i) => {
+            return (
+              <Grid
+                xs={5}
+                key={v._id}
+                onClick={() => {
+                  v.isBooked ? showDeteil(v._id) : bookingSlot(v._id);
+                }}
+                sx={{
+                  height: 75,
+                  width: 75,
+                  bgcolor: !v.isBooked ? "primary.main" : "error.main",
+                  "&:hover": {
+                    cursor: "pointer",
+                  },
+                }}
+              >
+                                <Typography color='white'>Slot{v.slot}</Typography>
+              </Grid>
+            );
+          })}
+        </Grid>
+      </Grid>
+
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -133,13 +223,14 @@ function AdminSlot() {
       >
         <Fade in={open}>
           <Box sx={style}>
-            <FormControl sx={{ m: 1, minWidth: 120 }}>
+            <FormControl sx={{ m: 1, minWidth: 300 }}>
               <Select
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 displayEmpty
                 inputProps={{ "aria-label": "Without label" }}
-              >
+              > 
+             
                 <MenuItem value="">
                   <em>Select</em>
                 </MenuItem>
